@@ -1,8 +1,13 @@
+.body {
+    margin: auto;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 img {
+    margin: auto;
     width: 50%;
 }
