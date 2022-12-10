@@ -7,4 +7,9 @@ img {
     width: 50%;
     margin: auto;
     display: block;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+div {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
