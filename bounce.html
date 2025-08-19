@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bouncing Word Puzzle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow: hidden; /* prevent scrollbars */
+      background: #f9f9f9;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    h1, p, #feedback {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    h1 { top: 10px; }
+    p { top: 50px; }
+    #feedback { bottom: 20px; }
+
+    .icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #333;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 32px;
+      background: #fff;
+      user-select: none;
+    }
+    .icon:hover {
+      transform: scale(1.2);
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <p id="feedback"></p>
+
+  <!-- A–Z icons -->
+  <div class="icon" data-letter="A">🍎</div>
+  <div class="icon" data-letter="B">🐻</div>
+  <div class="icon" data-letter="C">🐱</div>
+  <div class="icon" data-letter="D">🐶</div>
+  <div class="icon" data-letter="E">🥚</div>
+  <div class="icon" data-letter="F">🐟</div>
+  <div class="icon" data-letter="G">🦒</div>
+  <div class="icon" data-letter="H">🏠</div>
+  <div class="icon" data-letter="I">🍦</div>
+  <div class="icon" data-letter="J">🧃</div>
+  <div class="icon" data-letter="K">🦘</div>
+  <div class="icon" data-letter="L">🦁</div>
+  <div class="icon" data-letter="M">🐵</div>
+  <div class="icon" data-letter="N">🥜</div>
+  <div class="icon" data-letter="O">🍊</div>
+  <div class="icon" data-letter="P">🍕</div>
+  <div class="icon" data-letter="Q">👑</div>
+  <div class="icon" data-letter="R">🚗</div>
+  <div class="icon" data-letter="S">🌞</div>
+  <div class="icon" data-letter="T">🌴</div>
+  <div class="icon" data-letter="U">☂️</div>
+  <div class="icon" data-letter="V">🚐</div>
+  <div class="icon" data-letter="W">🐳</div>
+  <div class="icon" data-letter="X">❌</div>
+  <div class="icon" data-letter="Y">🛶</div>
+  <div class="icon" data-letter="Z">🦓</div>
+
+  <script src="js\bounce.js"></script>
+</body>
+</html>

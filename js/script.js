@@ -1,5 +1,5 @@
-// ✅ Change this to the secret word
-const correctWord = "JOCELYN"; 
+// ✅ Change this to your target word
+const correctWord = "LAMP"; 
 let userInput = "";
 
 const icons = document.querySelectorAll(".icon");
@@ -10,18 +10,16 @@ icons.forEach(icon => {
     const letter = icon.getAttribute("data-letter");
     userInput += letter;
 
-    //feedback.textContent = "Current: " + userInput;
+    feedback.textContent = "Current: " + userInput;
 
-    // If input is wrong at any point → reset
     if (!correctWord.startsWith(userInput)) {
-      //feedback.textContent = "❌";
+      feedback.textContent = "❌ Wrong sequence! Start again.";
       userInput = "";
     }
 
-    // If the word matches fully → redirect
     if (userInput === correctWord) {
       feedback.textContent = "✅ Correct!";
-      window.location.href = "answer.html"; // redirect to answer page
+      window.location.href = "answer.html";
     }
   });
 });
