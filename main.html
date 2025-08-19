@@ -2,108 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Word Puzzle</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 20px;
-    }
-    h1 {
-      margin-bottom: 10px;
-    }
-    .icons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 15px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .icon {
-      width: 100px;
-      height: 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid #333;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-      font-size: 22px;
-      background: #fff;
-    }
-    .icon:hover {
-      transform: scale(1.1);
-      background: #f0f0f0;
-    }
-    #feedback {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-  </style>
+  <title>ESCAPE ROOM</title>
+  <link rel="stylesheet" href="css\style.css">
 </head>
 <body>
   <div class="icons">
     <!-- Alphabet A–Z -->
-    <div class="icon" data-letter="A">🍎<br>Apple</div>
-    <div class="icon" data-letter="B">🐻<br>Bear</div>
-    <div class="icon" data-letter="C">🐱<br>Cat</div>
-    <div class="icon" data-letter="D">🐶<br>Dog</div>
-    <div class="icon" data-letter="E">🐘<br>Elephant</div>
-    <div class="icon" data-letter="F">🐸<br>Frog</div>
-    <div class="icon" data-letter="G">🦒<br>Giraffe</div>
-    <div class="icon" data-letter="H">🏠<br>House</div>
-    <div class="icon" data-letter="I">🍦<br>Ice Cream</div>
-    <div class="icon" data-letter="J">🤹<br>Juggler</div>
-    <div class="icon" data-letter="K">🦘<br>Kangaroo</div>
-    <div class="icon" data-letter="L">🦁<br>Lion</div>
-    <div class="icon" data-letter="M">🐒<br>Monkey</div>
-    <div class="icon" data-letter="N">🌙<br>Night</div>
-    <div class="icon" data-letter="O">🦉<br>Owl</div>
-    <div class="icon" data-letter="P">🦜<br>Parrot</div>
-    <div class="icon" data-letter="Q">👸<br>Queen</div>
-    <div class="icon" data-letter="R">🌈<br>Rainbow</div>
-    <div class="icon" data-letter="S">🐍<br>Snake</div>
-    <div class="icon" data-letter="T">🌳<br>Tree</div>
-    <div class="icon" data-letter="U">☂️<br>Umbrella</div>
-    <div class="icon" data-letter="V">🎻<br>Violin</div>
-    <div class="icon" data-letter="W">🌊<br>Wave</div>
-    <div class="icon" data-letter="X">🎶<br>Xylophone</div>
-    <div class="icon" data-letter="Y">🛶<br>Yacht</div>
-    <div class="icon" data-letter="Z">🦓<br>Zebra</div>
+    <div class="icon" data-letter="A"></div>
+    <div class="icon" data-letter="B"></div>
+    <div class="icon" data-letter="C"></div>
+    <div class="icon" data-letter="D"></div>
+    <div class="icon" data-letter="E"></div>
+    <div class="icon" data-letter="F"></div>
+    <div class="icon" data-letter="G"></div>
+    <div class="icon" data-letter="H"></div>
+    <div class="icon" data-letter="I"></div>
+    <div class="icon" data-letter="J"></div>
+    <div class="icon" data-letter="K"></div>
+    <div class="icon" data-letter="L"></div>
+    <div class="icon" data-letter="M"></div>
+    <div class="icon" data-letter="N"></div>
+    <div class="icon" data-letter="O"></div>
+    <div class="icon" data-letter="P"></div>
+    <div class="icon" data-letter="Q"></div>
+    <div class="icon" data-letter="R"></div>
+    <div class="icon" data-letter="S"></div>
+    <div class="icon" data-letter="T"></div>
+    <div class="icon" data-letter="U"></div>
+    <div class="icon" data-letter="V"></div>
+    <div class="icon" data-letter="W"></div>
+    <div class="icon" data-letter="X"></div>
+    <div class="icon" data-letter="Y"></div>
+    <div class="icon" data-letter="Z"></div>
   </div>
 
   <p id="feedback"></p>
 
-  <script>
-    // ✅ Change this to the secret word
-    const correctWord = "JOCELYN"; 
-    let userInput = "";
-
-    const icons = document.querySelectorAll(".icon");
-    const feedback = document.getElementById("feedback");
-
-    icons.forEach(icon => {
-      icon.addEventListener("click", () => {
-        const letter = icon.getAttribute("data-letter");
-        userInput += letter;
-
-        //feedback.textContent = "Current: " + userInput;
-
-        // If input is wrong at any point → reset
-        if (!correctWord.startsWith(userInput)) {
-          //feedback.textContent = "❌";
-          userInput = "";
-        }
-
-        // If the word matches fully → redirect
-        if (userInput === correctWord) {
-          feedback.textContent = "✅ Correct!";
-          window.location.href = "answer.html"; // redirect to answer page
-        }
-      });
-    });
-  </script>
+  <script src="js\script.js"></script>
 </body>
 </html>
