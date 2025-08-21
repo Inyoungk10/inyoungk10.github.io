@@ -95,11 +95,8 @@ icons.forEach(icon => {
     // Highlight clicked icon
     icon.classList.add("pressed");
 
-    //feedback.textContent = "Current: " + userInput;
-
     // Wrong sequence: reset input and remove all highlights
     if (!correctWord.startsWith(userInput)) {
-      //feedback.textContent = "❌ Wrong sequence! Start again.";
       console.log("wrong try again");
       userInput = "";
       icons.forEach(i => i.classList.remove("pressed"));
@@ -107,7 +104,6 @@ icons.forEach(icon => {
 
     // Correct sequence: go to answer page
     if (userInput === correctWord) {
-      //feedback.textContent = "✅ Correct!";
       console.log("yo");
       window.location.href = "answer.html";
     }
