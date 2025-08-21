@@ -1,14 +1,14 @@
-// Target word for the puzzle
-const correctWord = "CODE"; 
-let userInput = "";
-const feedback = document.getElementById("feedback");
+// ===================== CONFIG =====================
+const correctWord = "CHURRO"; // target word
+const iconSize = 100;         // width/height of icons in pixels
+const speedFactor = 0.7;     // 1 = normal speed, <1 = slower
 
-// Collect all icons and set constants
+// ===================== SETUP =====================
+//const feedback = document.getElementById("feedback");
 const icons = Array.from(document.querySelectorAll(".icon"));
-const iconSize = 60;          // width/height of icons
-const speedFactor = 0.5;      // slow down the motion
+let userInput = "";
 
-// Initialize each icon with random position and velocity
+// Initialize icons with random position and velocity
 const iconData = icons.map(icon => {
   const x = Math.random() * (window.innerWidth - iconSize);
   const y = Math.random() * (window.innerHeight - iconSize);
@@ -19,37 +19,39 @@ const iconData = icons.map(icon => {
   return { icon, x, y, dx, dy };
 });
 
-// Handle collisions between two icons
+// ===================== COLLISION FUNCTIONS =====================
+
+// Collision detection and resolution between two icons
 function handleCollision(a, b) {
   const dx = b.x - a.x;
   const dy = b.y - a.y;
   const distance = Math.sqrt(dx * dx + dy * dy);
 
   if (distance < iconSize) {
-    // Push icons apart
     const overlap = (iconSize - distance) / 2;
     const nx = dx / distance;
     const ny = dy / distance;
 
+    // Push icons apart
     a.x -= nx * overlap;
     a.y -= ny * overlap;
     b.x += nx * overlap;
     b.y += ny * overlap;
 
-    // Swap velocities
+    // Swap velocities (simple elastic)
     [a.dx, b.dx] = [b.dx, a.dx];
     [a.dy, b.dy] = [b.dy, a.dy];
   }
 }
 
-// Animation loop
+// ===================== ANIMATION LOOP =====================
 function animate() {
   iconData.forEach(data => {
-    // Move icons by their velocity and speed factor
+    // Move icons
     data.x += data.dx * speedFactor;
     data.y += data.dy * speedFactor;
 
-    // Bounce off walls with clamping
+    // Bounce off walls with position clamping
     if (data.x < 0) {
       data.x = 0;
       data.dx *= -1;
@@ -66,11 +68,12 @@ function animate() {
       data.dy *= -1;
     }
 
+    // Update DOM position
     data.icon.style.left = data.x + "px";
     data.icon.style.top = data.y + "px";
   });
 
-  // Check collisions between all icon pairs
+  // Handle collisions between icon pairs
   for (let i = 0; i < iconData.length; i++) {
     for (let j = i + 1; j < iconData.length; j++) {
       handleCollision(iconData[i], iconData[j]);
@@ -79,31 +82,33 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
+
+// Start animation
 animate();
 
-// Handle icon clicks
+// ===================== ICON CLICK HANDLER =====================
 icons.forEach(icon => {
   icon.addEventListener("click", () => {
     const letter = icon.getAttribute("data-letter");
     userInput += letter;
 
-    // Highlight the icon
+    // Highlight clicked icon
     icon.classList.add("pressed");
 
-    feedback.textContent = "Current: " + userInput;
+    //feedback.textContent = "Current: " + userInput;
 
-    // Check if current sequence is wrong
+    // Wrong sequence: reset input and remove all highlights
     if (!correctWord.startsWith(userInput)) {
-      feedback.textContent = "❌ Wrong sequence! Start again.";
+      //feedback.textContent = "❌ Wrong sequence! Start again.";
+      console.log("wrong try again");
       userInput = "";
-
-      // Remove highlight from all icons
       icons.forEach(i => i.classList.remove("pressed"));
     }
 
-    // Check if user completed the word
+    // Correct sequence: go to answer page
     if (userInput === correctWord) {
-      feedback.textContent = "✅ Correct!";
+      //feedback.textContent = "✅ Correct!";
+      console.log("yo");
       window.location.href = "answer.html";
     }
   });
