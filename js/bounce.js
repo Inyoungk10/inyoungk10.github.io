@@ -1,7 +1,7 @@
 // ===================== CONFIG =====================
 const correctWord = "CHURRO"; // target word
 const iconSize = 100;         // width/height of icons in pixels
-const speedFactor = 0.7;     // 1 = normal speed, <1 = slower
+const speedFactor = 0.9;     // 1 = normal speed, <1 = slower
 
 // ===================== SETUP =====================
 //const feedback = document.getElementById("feedback");
