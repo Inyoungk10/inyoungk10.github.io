@@ -1,5 +1,5 @@
 // ===================== CONFIG =====================
-const correctWord = "CHURRO"; // target word
+const correctWord = "WORSHIP"; // target word
 const iconSize = 100;         // width/height of icons in pixels
 const speedFactor = 0.7;     // 1 = normal speed, <1 = slower
 
